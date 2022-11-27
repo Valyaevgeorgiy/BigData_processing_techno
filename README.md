@@ -9,3 +9,7 @@
 - [Files_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/files_work) — детальный разбор взаимодействия с различными типами файлов посредством библиотек в Python (bs4, requests, urllib, json, xml.etree.ElementTree, shelve, pickle, os) в целях парсинга данных. 
 
 - [Tables_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/tables_work) — освоение главного инструмента в Python, позволяющего работать с данными, обрабатывать и получать их в таблицах формата .xlsx (Excel) с использованием библиотек xlsxwriter & xlwings.
+
+- [Visualization](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/visualization) — плотная работа над обработкой данных с целью их дальнейшей визуализации (библиотеки matplotlib & seaborn).
+
+- [Strings_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/strings_work) — изучение множества способов обработки строковых данных и дальнейшей работы с ними в тексте (библиотека re & nltk).
