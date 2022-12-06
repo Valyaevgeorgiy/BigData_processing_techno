@@ -14,4 +14,4 @@
 
 - [Strings_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/strings_work) — изучение множества способов обработки строковых данных и дальнейшей работы с ними в тексте (библиотека re & nltk).
 
-- [nlp_text](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/nlp_text) — обработка данных и текстов на естественном языке при помощи библиотек Python (nltk & sklearn).
+- [Nlp_text](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/nlp_text) — обработка данных и текстов на естественном языке при помощи библиотек Python (nltk & sklearn).
