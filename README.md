@@ -15,3 +15,5 @@
 - [Strings_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/strings_work) — изучение множества способов обработки строковых данных и дальнейшей работы с ними в тексте (библиотека re & nltk).
 
 - [Nlp_text](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/nlp_text) — обработка данных и текстов на естественном языке при помощи библиотек Python (nltk & sklearn).
+
+- [Profiling](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/profiling) — изучение алгоритмов оптимизации кода, анализа скорости и эффектиности его работы через библиотеку Python (numba) и магические функции (%timeit, %time, %lprun -f {name of function} {name of function(parameters)}).
