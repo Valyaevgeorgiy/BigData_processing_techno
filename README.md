@@ -17,3 +17,5 @@
 - [Nlp_text](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/nlp_text) — обработка данных и текстов на естественном языке при помощи библиотек Python (nltk & sklearn).
 
 - [Profiling](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/profiling) — изучение алгоритмов оптимизации кода, анализа скорости и эффектиности его работы через библиотеку Python (numba) и магические функции (%timeit, %time, %lprun -f {name of function} {name of function(parameters)}).
+
+- [Databases_work](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/databases_work) — взаимодействие с БД (создание структуры БД, вставка данных из файла, извлечение данных из БД) через Python и его специализированную библиотеку (sqlite3).
