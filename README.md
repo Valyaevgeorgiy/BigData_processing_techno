@@ -1,6 +1,6 @@
 # BigData processing 
 
-- [Parsing_photoalbums](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/parsing_photoalbums) — разработка собственных скриптов-парсеров фотоальбомов на популярных площадок (VK & Flickr) с локальной загрузкой всех фото и отчётностью загрузки в реальном времени. 
+- [Parsing_photoalbums](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/parsing_photoalbums) — разработка собственных скриптов-парсеров фотоальбомов на популярных площадках (VK & Flickr) с локальной загрузкой всех фото и отчётностью загрузки в реальном времени. 
 
 <hr>
 
