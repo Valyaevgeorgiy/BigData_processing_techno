@@ -1,0 +1,125 @@
+CREATE TABLE IF NOT EXISTS artists (
+    ArtistId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(120)
+);
+
+CREATE TABLE IF NOT EXISTS albums (
+    AlbumId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Title VARCHAR(160) NOT NULL,
+    ArtistId INTEGER NOT NULL,
+    FOREIGN KEY (ArtistId) REFERENCES artists (ArtistId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    EmployeeId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    LastName VARCHAR NOT NULL,
+    FirstName VARCHAR NOT NULL,
+    Title VARCHAR,
+    ReportsTo INTEGER,
+    BirthDate DATETIME,
+    HireDate DATETIME,
+    Address VARCHAR(70),
+    City VARCHAR(40),
+    State VARCHAR(40),
+    Country VARCHAR(40),
+    PostalCode VARCHAR(10),
+    Phone VARCHAR(24),
+    Fax VARCHAR(24),
+    Email VARCHAR(60),
+    FOREIGN KEY (ReportsTo) REFERENCES employees (EmployeeId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS genres (
+    GenreId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(120)
+);
+
+CREATE TABLE IF NOT EXISTS media_types (
+    MediaTypeId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(120)
+);
+
+CREATE TABLE IF NOT EXISTS playlists (
+    PlaylistId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(120)
+);
+
+CREATE TABLE IF NOT EXISTS tracks (
+    TrackId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(200) NOT NULL,
+    AlbumId INTEGER,
+    MediaTypeId INTEGER NOT NULL,
+    GenreId INTEGER,
+    Composer VARCHAR(220),
+    Milliseconds INTEGER NOT NULL,
+    Bytes INTEGER,
+    UnitPrice NUMERIC(10,2) NOT NULL,
+    FOREIGN KEY (AlbumId) REFERENCES albums (AlbumId) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (GenreId) REFERENCES genres (GenreId) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (MediaTypeId) REFERENCES media_types (MediaTypeId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE IF NOT EXISTS playlist_track (
+    PlaylistId INTEGER NOT NULL,
+    TrackId INTEGER NOT NULL,
+    CONSTRAINT PK_PlaylistTrack PRIMARY KEY (PlaylistId, TrackId),
+    FOREIGN KEY (PlaylistId) REFERENCES playlists (PlaylistId) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (TrackId) REFERENCES tracks (TrackId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE customers (
+	CustomerId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	FirstName VARCHAR (40) NOT NULL,
+	LastName VARCHAR (20) NOT NULL,
+	Company VARCHAR (80),
+	Address VARCHAR (70),
+	City VARCHAR (40),
+	State VARCHAR (40),
+	Country VARCHAR (40),
+	PostalCode VARCHAR (10),
+	Phone VARCHAR (24),
+	Fax VARCHAR (24),
+	Email VARCHAR (60) NOT NULL,
+	SupportRepId INTEGER,
+	Age INTEGER,
+	FOREIGN KEY (SupportRepId) REFERENCES employees (EmployeeId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE sales (
+	SalesId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	CustomerId INTEGER NOT NULL,
+	SalesDate DATETIME NOT NULL,
+	ShipAddress VARCHAR(70),
+	ShipCity VARCHAR(40),
+	ShipState VARCHAR(40),
+	ShipCountry VARCHAR(40),
+	ShipPostalCode VARCHAR(10),
+	FOREIGN KEY (CustomerId) REFERENCES customers (CustomerId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE sales_items (
+	SalesLineId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	SalesId INTEGER NOT NULL,
+	TrackId INTEGER NOT NULL,
+	UnitPrice NUMERIC(10,2) NOT NULL,
+	Quantity INTEGER NOT NULL,
+	FOREIGN KEY (SalesId) REFERENCES sales (SalesId) ON DELETE NO ACTION ON UPDATE NO ACTION,
+	FOREIGN KEY (TrackId) REFERENCES tracks (TrackId) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE INDEX IFK_AlbumArtistId ON albums (ArtistId);
+CREATE INDEX IFK_EmployeeReportsTo ON employees (ReportsTo);
+CREATE INDEX IFK_PlaylistTrackTrackId ON playlist_track (TrackId);
+CREATE INDEX IFK_TrackAlbumId ON tracks (AlbumId);
+CREATE INDEX IFK_TrackGenreId ON tracks (GenreId);
+CREATE INDEX IFK_TrackMediaTypeId ON tracks (MediaTypeId);
+
+CREATE INDEX IFK_CustomerSupportRepId ON customers (SupportRepId);
+
+CREATE INDEX IFK_InvoiceLineInvoiceId ON sales_items (SalesId);
+CREATE INDEX IFK_InvoiceLineTrackId ON sales_items (TrackId);
+
+CREATE INDEX IFK_InvoiceCustomerId ON sales (CustomerId);
+CREATE VIEW vw_test as
+select case when artistId >10 then 1 else 0 end,*  from albums
+/* vw_test("case when artistId >10 then 1 else 0 end",AlbumId,Title,ArtistId) */;
