@@ -20,7 +20,7 @@ for row in rows:
     lst.append(f"INSERT INTO sales VALUES ({values});")
     print(f"INSERT INTO sales VALUES ({values});")
 
-with open(f'{os.path.dirname(os.path.abspath(__file__))}/sqltext.txt', 'w', encoding='utf-8') as t:
+with open(f'{os.path.dirname(os.path.abspath(__file__))}/sqltext.sql', 'w', encoding='utf-8') as t:
     for row in lst:
         t.write(row+"\n")
 
