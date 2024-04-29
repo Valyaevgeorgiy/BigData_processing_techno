@@ -1,7 +1,7 @@
 # Обработка больших данных 
 
 - [Excel_analytics](https://github.com/Valyaevgeorgiy/Excel_analytics/tree/main) — аналитика данных с визуализацией отчётов в MS Excel.
-- [SQL_dev](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/SQL_dev) — выполнение SQL-запросов к локальной базе данных в MySQL различной направленности:
+- [SQL_dev](https://github.com/Valyaevgeorgiy/BigData_processing_techno/tree/main/SQL_dev) — разработка баз данных в СУБД MySQL с выполнением нескольких разноплановых запросов:
   - создание, обновление и удаление таблиц
   - объединение, пересечение и разность запросов к таблицам
   - получение данных таблиц с первоначальной фильтрацией
